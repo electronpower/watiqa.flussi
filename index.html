@@ -112,7 +112,7 @@
         .hero-content {
             text-align: center;
             padding: 6rem 3rem 4rem;
-            width: 100%;  
+            width: 100%;
             direction: rtl;
         }
         
@@ -168,18 +168,26 @@
             color: var(--charcoal);
             transform: translateY(-2px);
         }
-
-
+        
         .hero-image {
             position: relative;
             width: 100%;
-            height: 100%;
+            height: auto;
+            min-height: 400px;
             max-width: var(--container-max);
-            object-fit: contain;    
             margin: 0 auto;
             background: var(--sand);
             border-radius: 2px;
-            overflow: hidden;
+            overflow: visible;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            position: relative;
+            z-index: 2;
         }
         
         .hero-image::before {
@@ -191,6 +199,7 @@
             bottom: 0;
             background: linear-gradient(135deg, rgba(201,169,97,0.1) 0%, rgba(61,90,76,0.1) 100%);
             z-index: 1;
+            pointer-events: none;
         }
         
         .image-placeholder-elegant {
@@ -660,7 +669,13 @@
             }
             
             .hero-image {
-                height: 400px;
+                min-height: 250px;
+                padding: 0.5rem;
+            }
+            
+            .hero-image img {
+                width: 100%;
+                height: auto;
             }
             
             .hero h1 {
@@ -730,27 +745,19 @@
                 Watiqa<span class="logo-accent">Flussi</span>
             </div>
             <div class="header-contact">
-                <span class="header-flags">🇲🇦 🇮🇹 🇪🇸 🇪🇺</span>
+                <span class="header-flags">🇲🇦 ↔️ 🇪🇺</span>
             </div>
         </div>
     </header>
 
-    
-    <!-- Hero Image - Full Width Below -->
-    <section style="padding: 0 3rem 6rem;">
-        <div class="hero-image">
-            <img src="images/hero-services.svg" 
-                 alt="Services WatiqaFlussi Europe-Maroc" 
-                 style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-    </section>
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content fade-in-up">
             <div class="hero-eyebrow">SERVICES PREMIUM</div>
-            <h1 class="serif">خدماتك بين أوروبا و المغرب</h1>
+            <h1 class="serif">خدماتك بين<br>أوروبا و المغرب</h1>
             <p class="hero-subtitle">
-                تسيفيط الفلوس، السفريات، الفيزا، الوثائق كلشي بثقة و احترافية
+                تسيفيط الفلوس، السفريات، الفيزا، الوثائق<br>
+                كلشي بثقة و احترافية
             </p>
             <p class="hero-subtitle-fr">
                 Transferts • Voyages • Visas • Documents<br>
@@ -763,7 +770,13 @@
         </div>
     </section>
     
-
+    <!-- Hero Image - Full Width Below -->
+    <section style="padding: 0 3rem 6rem; overflow: visible;">
+        <div class="hero-image">
+            <img src="images/hero-services.svg" 
+                 alt="Services WatiqaFlussi Europe-Maroc">
+        </div>
+    </section>
 
     <!-- Services Section -->
     <section class="services-section">
