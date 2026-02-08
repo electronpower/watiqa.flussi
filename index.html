@@ -3,8 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transfert d'argent Maroc - Rkhis o Sari3</title>
+    <title>WatiqaFlussi - تسيفيط فلوس للمغرب</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --poste-yellow: #FFD500;
+            --poste-blue: #003D7A;
+            --poste-dark: #1A1A1A;
+            --poste-gray: #F5F5F5;
+            --poste-border: #E0E0E0;
+            --morocco-green: #006633;
+            --morocco-red: #C1272D;
+            --whatsapp: #25D366;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,287 +26,566 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #006633 0%, #C1272D 100%);
-            min-height: 100vh;
-            padding: 20px;
+            font-family: 'Cairo', sans-serif;
+            background: #FFFFFF;
+            color: var(--poste-dark);
+            line-height: 1.6;
         }
         
-        .container {
+        /* Header */
+        .header {
+            background: var(--poste-blue);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-accent {
+            color: var(--poste-yellow);
+        }
+        
+        .header-flags {
+            font-size: 24px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--poste-blue) 0%, #00549F 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+        
+        /* Price Card - Inspired by Poste's clean cards */
+        .price-section {
+            padding: 3rem 2rem;
+            background: var(--poste-gray);
+        }
+        
+        .price-card {
             max-width: 600px;
             margin: 0 auto;
             background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            border-radius: 8px;
+            padding: 3rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--poste-yellow);
+            text-align: center;
         }
         
-        .flag {
-            text-align: center;
-            font-size: 60px;
-            margin-bottom: 20px;
+        .price-label {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 1rem;
+            font-weight: 600;
         }
         
-        h1 {
-            text-align: center;
-            color: #C1272D;
-            font-size: 28px;
-            margin-bottom: 10px;
-            direction: rtl;
+        .price-amount {
+            font-size: 72px;
+            font-weight: 900;
+            color: var(--morocco-red);
+            line-height: 1;
+            margin-bottom: 0.5rem;
         }
         
-        .tagline {
-            text-align: center;
+        .price-suffix {
             font-size: 20px;
-            color: #006633;
-            font-weight: bold;
-            margin-bottom: 30px;
-            direction: rtl;
+            color: #666;
+            font-weight: 600;
         }
         
-        .price-box {
-            background: #f0f9f4;
-            border: 3px solid #006633;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 30px 0;
+        /* Comparison Table */
+        .comparison-section {
+            padding: 3rem 2rem;
+            background: white;
+        }
+        
+        .comparison-table {
+            max-width: 700px;
+            margin: 2rem auto;
+            border: 1px solid var(--poste-border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .comparison-header {
+            background: var(--poste-blue);
+            color: white;
+            padding: 1.5rem;
+            font-size: 20px;
+            font-weight: 700;
             text-align: center;
         }
         
-        .price-box h2 {
-            font-size: 24px;
-            color: #006633;
-            margin-bottom: 15px;
-            direction: rtl;
+        .comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: 1px solid var(--poste-border);
+            transition: background 0.2s;
         }
         
-        .price {
-            font-size: 48px;
-            color: #C1272D;
-            font-weight: bold;
-            margin: 20px 0;
+        .comparison-row:hover {
+            background: #FAFAFA;
         }
         
-        .comparison {
-            background: #fff3cd;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            direction: rtl;
+        .comparison-row:last-child {
+            border-bottom: none;
         }
         
-        .comparison p {
-            font-size: 16px;
-            margin: 5px 0;
+        .comparison-cell {
+            padding: 1.5rem;
+            font-size: 18px;
         }
         
-        .features {
-            margin: 30px 0;
+        .comparison-provider {
+            font-weight: 600;
+            border-left: 1px solid var(--poste-border);
         }
         
-        .feature {
-            display: flex;
-            align-items: center;
-            margin: 15px 0;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            direction: rtl;
+        .comparison-price {
+            text-align: left;
+            font-weight: 700;
+            color: #666;
+        }
+        
+        .comparison-highlight {
+            background: #FFF9E6;
+            font-weight: 900;
+            color: var(--morocco-green);
+        }
+        
+        /* Features Grid */
+        .features-section {
+            padding: 4rem 2rem;
+            background: var(--poste-gray);
+        }
+        
+        .features-grid {
+            max-width: 1000px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--poste-yellow);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
         }
         
         .feature-icon {
-            font-size: 30px;
-            margin-left: 15px;
+            font-size: 40px;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--poste-blue);
+            margin-bottom: 0.5rem;
         }
         
         .feature-text {
-            font-size: 18px;
-            color: #333;
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
         }
         
-        .whatsapp-btn {
-            display: block;
-            background: #25D366;
-            color: white;
+        /* CTA Section */
+        .cta-section {
+            padding: 4rem 2rem;
+            background: white;
             text-align: center;
-            padding: 20px;
-            border-radius: 15px;
-            text-decoration: none;
-            font-size: 24px;
-            font-weight: bold;
-            margin: 30px 0;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
-            transition: transform 0.2s;
         }
         
-        .whatsapp-btn:hover {
+        .cta-box {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--whatsapp) 0%, #1EA952 100%);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+        }
+        
+        .cta-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            color: var(--whatsapp);
+            padding: 1.25rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: 700;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .whatsapp-button:hover {
             transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
         }
         
         .whatsapp-icon {
-            font-size: 30px;
-            margin-left: 10px;
+            font-size: 28px;
         }
         
-        .steps {
-            background: #e7f3ff;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 30px 0;
+        /* Steps Section */
+        .steps-section {
+            padding: 4rem 2rem;
+            background: var(--poste-gray);
         }
         
-        .steps h3 {
+        .section-title {
             text-align: center;
-            color: #006633;
-            margin-bottom: 20px;
-            font-size: 22px;
-            direction: rtl;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--poste-blue);
+            margin-bottom: 3rem;
+        }
+        
+        .steps-container {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .step {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
             display: flex;
             align-items: center;
-            margin: 15px 0;
-            direction: rtl;
+            gap: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.2s;
+        }
+        
+        .step:hover {
+            transform: translateX(-8px);
         }
         
         .step-number {
-            background: #C1272D;
-            color: white;
-            width: 40px;
-            height: 40px;
+            background: var(--poste-yellow);
+            color: var(--poste-blue);
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
-            font-weight: bold;
-            margin-left: 15px;
+            font-size: 28px;
+            font-weight: 900;
             flex-shrink: 0;
         }
         
         .step-text {
-            font-size: 16px;
-            color: #333;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--poste-dark);
+        }
+        
+        /* Trust Section */
+        .trust-section {
+            padding: 3rem 2rem;
+            background: white;
+            border-top: 1px solid var(--poste-border);
         }
         
         .trust-badges {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             text-align: center;
-            margin: 30px 0;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 15px;
         }
         
-        .trust-badges p {
+        .trust-badge {
+            padding: 1.5rem;
+        }
+        
+        .trust-icon {
+            font-size: 48px;
+            margin-bottom: 1rem;
+        }
+        
+        .trust-text {
             font-size: 18px;
-            color: #006633;
-            font-weight: bold;
-            direction: rtl;
+            font-weight: 600;
+            color: var(--poste-blue);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--poste-blue);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-text {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .price-amount {
+                font-size: 56px;
+            }
+            
+            .comparison-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-provider {
+                border-left: none;
+                border-bottom: 1px solid var(--poste-border);
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step:hover {
+                transform: translateY(-8px);
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
         }
         
         @media (max-width: 480px) {
-            .container {
-                padding: 20px;
+            .header {
+                padding: 1rem;
             }
             
-            h1 {
-                font-size: 24px;
+            .logo {
+                font-size: 20px;
             }
             
-            .price {
-                font-size: 36px;
+            .hero {
+                padding: 3rem 1rem;
+            }
+            
+            .price-card {
+                padding: 2rem 1rem;
+            }
+            
+            .whatsapp-button {
+                padding: 1rem 1.5rem;
+                font-size: 18px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="flag">🇲🇦 ↔️ 🇪🇺</div>
-        
-        <h1>تسيفيط فلوس للمغرب</h1>
-        <div class="tagline">رخيص و سريع و آمن</div>
-        
-        <div class="price-box">
-            <h2>الثمن ديالنا</h2>
-            <div class="price">5€</div>
-            <p style="font-size: 18px; color: #666; direction: rtl;">كومسيون فقط</p>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                Watiqa<span class="logo-accent">Flussi</span>
+            </div>
+            <div class="header-flags">🇲🇦 ↔️ 🇪🇺</div>
         </div>
-        
-        <div class="comparison">
-            <p style="text-align: center; font-weight: bold; color: #856404; margin-bottom: 10px;">
-                ⚠️ قارن مع لخرين
-            </p>
-            <p>🏦 Western Union: 12-15€</p>
-            <p>🏦 MoneyGram: 10-13€</p>
-            <p>💚 <strong>حنا: 5€ غير!</strong></p>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>تسيفيط فلوس للمغرب</h1>
+            <p class="hero-subtitle">رخيص، سريع و آمن</p>
         </div>
-        
-        <div class="features">
-            <div class="feature">
+    </section>
+
+    <!-- Price Section -->
+    <section class="price-section">
+        <div class="price-card">
+            <div class="price-label">كومسيون على كل ترونسفير</div>
+            <div class="price-amount">5€</div>
+            <div class="price-suffix">غير</div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="comparison-table">
+            <div class="comparison-header">
+                قارن مع البنوك و الشركات الأخرى
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell comparison-provider">Western Union</div>
+                <div class="comparison-cell comparison-price">12-15€</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell comparison-provider">MoneyGram</div>
+                <div class="comparison-cell comparison-price">10-13€</div>
+            </div>
+            <div class="comparison-row comparison-highlight">
+                <div class="comparison-cell comparison-provider">💚 WatiqaFlussi</div>
+                <div class="comparison-cell comparison-price">5€ غير!</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <h2 class="section-title">لماذا WatiqaFlussi؟</h2>
+        <div class="features-grid">
+            <div class="feature-card">
                 <div class="feature-icon">⚡</div>
-                <div class="feature-text">الفلوس كيوصلو في ساعتين غير</div>
+                <div class="feature-title">وصول سريع</div>
+                <div class="feature-text">الفلوس كيوصلو في ساعتين غير. مباشرة لعائلتك في المغرب.</div>
             </div>
-            
-            <div class="feature">
+            <div class="feature-card">
                 <div class="feature-icon">🔒</div>
-                <div class="feature-text">آمن و مضمون 100%</div>
+                <div class="feature-title">آمن و مضمون</div>
+                <div class="feature-text">خدمة مرخصة و محمية 100%. فلوسك في أمان تام.</div>
             </div>
-            
-            <div class="feature">
+            <div class="feature-card">
                 <div class="feature-icon">💰</div>
-                <div class="feature-text">بلا مصاريف مخبية</div>
+                <div class="feature-title">بلا مصاريف مخبية</div>
+                <div class="feature-text">الثمن واضح و شفاف. ما كاين مفاجآت.</div>
             </div>
-            
-            <div class="feature">
+            <div class="feature-card">
                 <div class="feature-icon">📱</div>
-                <div class="feature-text">غير واتساب، ما كاينش تعقيد</div>
+                <div class="feature-title">سهل و بسيط</div>
+                <div class="feature-text">غير واتساب، ما كاينش تعقيد. كلشي بالصوت.</div>
             </div>
         </div>
-        
-        <a href="https://wa.me/33XXXXXXXXX?text=السلام%20عليكم،%20بغيت%20نسيفط%20الفلوس%20للمغرب" class="whatsapp-btn">
-            <span class="whatsapp-icon">📱</span>
-            تصوّل دابا على واتساب
-        </a>
-        
-        <div class="steps">
-            <h3>كيفاش كتسيفط؟</h3>
-            
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-box">
+            <div class="cta-title">تصوّل دابا و سيفط الفلوس</div>
+            <a href="https://wa.me/33XXXXXXXXX?text=السلام%20عليكم،%20بغيت%20نسيفط%20الفلوس%20للمغرب" class="whatsapp-button">
+                <span class="whatsapp-icon">📱</span>
+                <span>اتصل على واتساب</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="steps-section">
+        <h2 class="section-title">كيفاش كتسيفط؟</h2>
+        <div class="steps-container">
             <div class="step">
                 <div class="step-number">1</div>
-                <div class="step-text">تصوّل علينا على واتساب (صوتي)</div>
+                <div class="step-text">تصوّل علينا على واتساب (رسالة صوتية)</div>
             </div>
-            
             <div class="step">
                 <div class="step-number">2</div>
                 <div class="step-text">غنقولوليك فين تعطي الفلوس (حانوت قريب منك)</div>
             </div>
-            
             <div class="step">
                 <div class="step-number">3</div>
                 <div class="step-text">الفلوس كيوصلو لعائلتك في المغرب</div>
             </div>
-            
             <div class="step">
                 <div class="step-number">4</div>
                 <div class="step-text">غنعلموك فاش وصلو - صافي!</div>
             </div>
         </div>
-        
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
         <div class="trust-badges">
-            <p>✅ مرخّص و قانوني</p>
-            <p>✅ خدمنا مع أكثر من 500 عائلة</p>
-            <p>✅ خدمة 7/7 أيام</p>
+            <div class="trust-badge">
+                <div class="trust-icon">✅</div>
+                <div class="trust-text">مرخّص و قانوني</div>
+            </div>
+            <div class="trust-badge">
+                <div class="trust-icon">👥</div>
+                <div class="trust-text">خدمنا مع +500 عائلة</div>
+            </div>
+            <div class="trust-badge">
+                <div class="trust-icon">🕐</div>
+                <div class="trust-text">خدمة 7/7 أيام</div>
+            </div>
         </div>
-        
-        <a href="https://wa.me/33XXXXXXXXX?text=السلام%20عليكم،%20بغيت%20نسيفط%20الفلوس%20للمغرب" class="whatsapp-btn">
-            <span class="whatsapp-icon">📱</span>
-            ابدا دابا - واتساب
-        </a>
-        
-        <p style="text-align: center; color: #999; font-size: 14px; margin-top: 30px; direction: rtl;">
-            خدمة نقل الأموال - من أوروبا للمغرب
-        </p>
-    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Watiqa<span class="logo-accent">Flussi</span></div>
+            <div class="footer-text">خدمة نقل الأموال - من أوروبا للمغرب</div>
+            <div class="footer-text" style="margin-top: 1rem;">© 2026 WatiqaFlussi - جميع الحقوق محفوظة</div>
+        </div>
+    </footer>
 </body>
 </html>
