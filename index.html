@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WatiqaFlussi - تسيفيط فلوس للمغرب</title>
+    <title>WatiqaFlussi - خدمات أوروبا-المغرب | Services Europe-Maroc</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --poste-yellow: #FFD500;
@@ -26,7 +26,7 @@
         }
         
         body {
-            font-family: 'Cairo', sans-serif;
+            font-family: 'Cairo', 'Inter', sans-serif;
             background: #FFFFFF;
             color: var(--poste-dark);
             line-height: 1.6;
@@ -36,12 +36,15 @@
         .header {
             background: var(--poste-blue);
             color: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         
         .header-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -66,194 +69,244 @@
         .hero {
             background: linear-gradient(135deg, var(--poste-blue) 0%, #00549F 100%);
             color: white;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
         
         .hero h1 {
-            font-size: 48px;
+            font-size: 52px;
             font-weight: 900;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             line-height: 1.2;
         }
         
         .hero-subtitle {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: 400;
             opacity: 0.95;
-            margin-bottom: 2rem;
-        }
-        
-        /* Price Card - Inspired by Poste's clean cards */
-        .price-section {
-            padding: 3rem 2rem;
-            background: var(--poste-gray);
-        }
-        
-        .price-card {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 8px;
-            padding: 3rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border-top: 4px solid var(--poste-yellow);
-            text-align: center;
-        }
-        
-        .price-label {
-            font-size: 18px;
-            color: #666;
             margin-bottom: 1rem;
-            font-weight: 600;
         }
         
-        .price-amount {
-            font-size: 72px;
-            font-weight: 900;
-            color: var(--morocco-red);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-        
-        .price-suffix {
+        .hero-subtitle-fr {
             font-size: 20px;
-            color: #666;
-            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            opacity: 0.85;
         }
         
-        /* Comparison Table */
-        .comparison-section {
-            padding: 3rem 2rem;
-            background: white;
-        }
-        
-        .comparison-table {
-            max-width: 700px;
-            margin: 2rem auto;
-            border: 1px solid var(--poste-border);
-            border-radius: 8px;
+        /* Image Placeholder */
+        .image-placeholder {
+            background: linear-gradient(135deg, #E0E0E0 0%, #F5F5F5 100%);
+            border: 2px dashed #BDBDBD;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            color: #757575;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+            position: relative;
             overflow: hidden;
         }
         
-        .comparison-header {
-            background: var(--poste-blue);
-            color: white;
-            padding: 1.5rem;
-            font-size: 20px;
-            font-weight: 700;
-            text-align: center;
+        .image-placeholder:hover {
+            border-color: var(--poste-yellow);
+            background: linear-gradient(135deg, #F5F5F5 0%, #FAFAFA 100%);
         }
         
-        .comparison-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            border-bottom: 1px solid var(--poste-border);
-            transition: background 0.2s;
+        .image-placeholder-icon {
+            font-size: 64px;
+            margin-bottom: 1rem;
+            opacity: 0.5;
         }
         
-        .comparison-row:hover {
-            background: #FAFAFA;
-        }
-        
-        .comparison-row:last-child {
-            border-bottom: none;
-        }
-        
-        .comparison-cell {
-            padding: 1.5rem;
-            font-size: 18px;
-        }
-        
-        .comparison-provider {
+        .image-placeholder-text {
+            font-size: 16px;
             font-weight: 600;
-            border-left: 1px solid var(--poste-border);
+            text-align: center;
+            padding: 0 2rem;
         }
         
-        .comparison-price {
-            text-align: left;
-            font-weight: 700;
-            color: #666;
+        .image-placeholder-subtext {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-top: 0.5rem;
         }
         
-        .comparison-highlight {
-            background: #FFF9E6;
-            font-weight: 900;
-            color: var(--morocco-green);
-        }
-        
-        /* Features Grid */
-        .features-section {
+        /* Main Content */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
             padding: 4rem 2rem;
-            background: var(--poste-gray);
         }
         
-        .features-grid {
-            max-width: 1000px;
-            margin: 2rem auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+        .section {
+            margin-bottom: 6rem;
         }
         
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            border-left: 4px solid var(--poste-yellow);
-            transition: transform 0.2s, box-shadow 0.2s;
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
         }
         
-        .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-        }
-        
-        .feature-icon {
-            font-size: 40px;
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--poste-blue);
             margin-bottom: 1rem;
         }
         
-        .feature-title {
+        .section-subtitle {
             font-size: 20px;
-            font-weight: 700;
-            color: var(--poste-blue);
-            margin-bottom: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            color: #666;
+            line-height: 1.8;
         }
         
-        .feature-text {
+        /* Service Cards with Images */
+        .service-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+            padding: 3rem;
+            background: var(--poste-gray);
+            border-radius: 16px;
+        }
+        
+        .service-showcase.reverse {
+            direction: ltr;
+        }
+        
+        .service-showcase-content {
+            direction: rtl;
+        }
+        
+        .service-showcase-icon {
+            font-size: 56px;
+            margin-bottom: 1rem;
+        }
+        
+        .service-showcase-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--poste-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .service-showcase-title-fr {
+            font-size: 24px;
+            font-family: 'Inter', sans-serif;
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        
+        .service-showcase-description {
+            font-size: 18px;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .service-showcase-features {
+            list-style: none;
+            margin-top: 2rem;
+        }
+        
+        .service-showcase-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--poste-border);
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .service-showcase-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-icon {
+            color: var(--morocco-green);
+            font-size: 24px;
+        }
+        
+        /* Value Proposition Cards */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s;
+            border-top: 4px solid var(--poste-yellow);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+        }
+        
+        .value-card-icon {
+            font-size: 56px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .value-card-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--poste-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .value-card-description {
             font-size: 16px;
             color: #666;
-            line-height: 1.6;
+            line-height: 1.8;
         }
         
         /* CTA Section */
         .cta-section {
-            padding: 4rem 2rem;
-            background: white;
-            text-align: center;
-        }
-        
-        .cta-box {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 3rem;
             background: linear-gradient(135deg, var(--whatsapp) 0%, #1EA952 100%);
-            border-radius: 12px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 5rem 0;
+            border-radius: 16px;
             box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
         }
         
         .cta-title {
-            font-size: 28px;
+            font-size: 36px;
             font-weight: 700;
             color: white;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-subtitle {
+            font-size: 20px;
+            font-family: 'Inter', sans-serif;
+            color: white;
+            opacity: 0.95;
+            margin-bottom: 2rem;
         }
         
         .whatsapp-button {
@@ -262,121 +315,220 @@
             gap: 12px;
             background: white;
             color: var(--whatsapp);
-            padding: 1.25rem 2.5rem;
+            padding: 1.5rem 3rem;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 700;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: all 0.3s;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         
         .whatsapp-button:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
         }
         
-        .whatsapp-icon {
+        /* Pricing Section - Collapsible */
+        .pricing-section {
+            background: var(--poste-gray);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            margin: 5rem 0;
+        }
+        
+        .pricing-toggle {
+            background: var(--poste-blue);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .pricing-toggle:hover {
+            background: #00549F;
+            transform: translateY(-2px);
+        }
+        
+        .pricing-toggle-title {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .pricing-toggle-icon {
             font-size: 28px;
+            transition: transform 0.3s;
         }
         
-        /* Steps Section */
-        .steps-section {
-            padding: 4rem 2rem;
+        .pricing-toggle.active .pricing-toggle-icon {
+            transform: rotate(180deg);
+        }
+        
+        .pricing-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        
+        .pricing-content.active {
+            max-height: 2000px;
+            transition: max-height 0.5s ease-in;
+        }
+        
+        .pricing-table {
+            background: white;
+            margin-top: 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .pricing-table-header {
+            background: var(--poste-blue);
+            color: white;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1rem;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .pricing-table-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1rem;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--poste-border);
+            transition: background 0.2s;
+        }
+        
+        .pricing-table-row:hover {
             background: var(--poste-gray);
         }
         
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--poste-blue);
-            margin-bottom: 3rem;
+        .pricing-table-row:last-child {
+            border-bottom: none;
         }
         
-        .steps-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .step {
-            background: white;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            transition: transform 0.2s;
-        }
-        
-        .step:hover {
-            transform: translateX(-8px);
-        }
-        
-        .step-number {
-            background: var(--poste-yellow);
-            color: var(--poste-blue);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            font-weight: 900;
-            flex-shrink: 0;
-        }
-        
-        .step-text {
-            font-size: 18px;
+        .pricing-service {
             font-weight: 600;
             color: var(--poste-dark);
         }
         
-        /* Trust Section */
-        .trust-section {
-            padding: 3rem 2rem;
-            background: white;
-            border-top: 1px solid var(--poste-border);
+        .pricing-service-subtitle {
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            color: #666;
+            margin-top: 0.25rem;
         }
         
-        .trust-badges {
-            max-width: 900px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+        .pricing-frequency {
+            color: #666;
             text-align: center;
         }
         
-        .trust-badge {
-            padding: 1.5rem;
+        .pricing-amount {
+            font-weight: 700;
+            color: var(--morocco-green);
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        .pricing-note {
+            padding: 2rem;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            font-family: 'Inter', sans-serif;
+            font-style: italic;
+        }
+        
+        /* Trust Section */
+        .trust-section {
+            padding: 4rem 2rem;
+            background: white;
+        }
+        
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .trust-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--poste-gray);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        
+        .trust-card:hover {
+            background: white;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
         }
         
         .trust-icon {
-            font-size: 48px;
+            font-size: 56px;
             margin-bottom: 1rem;
         }
         
-        .trust-text {
-            font-size: 18px;
-            font-weight: 600;
+        .trust-title {
+            font-size: 20px;
+            font-weight: 700;
             color: var(--poste-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .trust-description {
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            color: #666;
         }
         
         /* Footer */
         .footer {
             background: var(--poste-blue);
             color: white;
-            padding: 2rem;
-            text-align: center;
+            padding: 3rem 2rem;
         }
         
         .footer-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--poste-yellow);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 0.75rem;
+            opacity: 0.9;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
         }
         
         .footer-logo {
@@ -385,45 +537,64 @@
             margin-bottom: 1rem;
         }
         
-        .footer-text {
-            font-size: 14px;
-            opacity: 0.8;
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .service-showcase {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-showcase.reverse {
+                direction: rtl;
+            }
         }
         
-        /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 36px;
             }
             
             .hero-subtitle {
-                font-size: 18px;
-            }
-            
-            .price-amount {
-                font-size: 56px;
-            }
-            
-            .comparison-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .comparison-provider {
-                border-left: none;
-                border-bottom: 1px solid var(--poste-border);
-            }
-            
-            .step {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .step:hover {
-                transform: translateY(-8px);
+                font-size: 20px;
             }
             
             .section-title {
+                font-size: 32px;
+            }
+            
+            .service-showcase {
+                padding: 2rem;
+            }
+            
+            .service-showcase-title {
                 font-size: 28px;
+            }
+            
+            .pricing-table-header,
+            .pricing-table-row {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .pricing-table-header {
+                display: none;
+            }
+            
+            .pricing-table-row {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .pricing-service::before {
+                content: "📋 ";
+            }
+            
+            .pricing-frequency::before {
+                content: "📅 ";
+            }
+            
+            .pricing-amount::before {
+                content: "💰 ";
             }
         }
         
@@ -440,13 +611,13 @@
                 padding: 3rem 1rem;
             }
             
-            .price-card {
+            .main-content {
                 padding: 2rem 1rem;
             }
             
             .whatsapp-button {
-                padding: 1rem 1.5rem;
-                font-size: 18px;
+                padding: 1.25rem 2rem;
+                font-size: 20px;
             }
         }
     </style>
@@ -465,127 +636,440 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>تسيفيط فلوس للمغرب</h1>
-            <p class="hero-subtitle">رخيص، سريع و آمن</p>
+            <h1>خدماتك بين أوروبا و المغرب</h1>
+            <p class="hero-subtitle">سهلة، سريعة و آمنة</p>
+            <p class="hero-subtitle-fr">Services Europe-Maroc: Simples, rapides et sécurisés</p>
         </div>
     </section>
 
-    <!-- Price Section -->
-    <section class="price-section">
-        <div class="price-card">
-            <div class="price-label">كومسيون على كل ترونسفير</div>
-            <div class="price-amount">5€</div>
-            <div class="price-suffix">غير</div>
-        </div>
-    </section>
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- Intro Section -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">كلشي كنديرو ليك</h2>
+                <p class="section-subtitle">
+                    من تسيفيط الفلوس، الحجز ديال السفريات، الفيزا و الوثائق - كلشي في بلاصة وحدة
+                    <br>
+                    <span style="font-family: 'Inter', sans-serif;">
+                    Transferts d'argent, réservations de voyage, visas et documents - tout en un seul endroit
+                    </span>
+                </p>
+            </div>
+            
+            <div class="image-placeholder">
+                <div class="image-placeholder-icon">🖼️</div>
+                <div class="image-placeholder-text">
+                    Hero Image: Services Overview
+                    <div class="image-placeholder-subtext">
+                        Suggestion: Collage montrant transfert d'argent + billet d'avion + documents + personnes souriantes
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Comparison Section -->
-    <section class="comparison-section">
-        <div class="comparison-table">
-            <div class="comparison-header">
-                قارن مع البنوك و الشركات الأخرى
+        <!-- Money Transfer Service -->
+        <section class="section">
+            <div class="service-showcase">
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">💰</div>
+                    <div class="image-placeholder-text">
+                        Image: Money Transfer
+                        <div class="image-placeholder-subtext">
+                            Suggestion: Main tenant smartphone WhatsApp + billets d'euros devenant dirhams
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-showcase-content">
+                    <div class="service-showcase-icon">💰</div>
+                    <h3 class="service-showcase-title">تسيفيط الفلوس للمغرب</h3>
+                    <p class="service-showcase-title-fr">Transfert d'argent vers le Maroc</p>
+                    <p class="service-showcase-description">
+                        سيفط الفلوس لعائلتك في المغرب بكل سهولة. أرخص من البنوك الكبار و كيوصل في ساعتين غير.
+                    </p>
+                    <p class="service-showcase-description" style="font-family: 'Inter', sans-serif;">
+                        Envoyez de l'argent à votre famille au Maroc facilement. Moins cher que les grandes banques et arrive en seulement 2 heures.
+                    </p>
+                    <ul class="service-showcase-features">
+                        <li><span class="feature-icon">⚡</span> وصول سريع - ساعتين | Arrivée rapide - 2h</li>
+                        <li><span class="feature-icon">💰</span> أرخص من البنوك | Moins cher que les banques</li>
+                        <li><span class="feature-icon">🔒</span> آمن و مضمون | Sécurisé et garanti</li>
+                        <li><span class="feature-icon">📱</span> غير واتساب | Seulement WhatsApp</li>
+                    </ul>
+                </div>
             </div>
-            <div class="comparison-row">
-                <div class="comparison-cell comparison-provider">Western Union</div>
-                <div class="comparison-cell comparison-price">12-15€</div>
-            </div>
-            <div class="comparison-row">
-                <div class="comparison-cell comparison-provider">MoneyGram</div>
-                <div class="comparison-cell comparison-price">10-13€</div>
-            </div>
-            <div class="comparison-row comparison-highlight">
-                <div class="comparison-cell comparison-provider">💚 WatiqaFlussi</div>
-                <div class="comparison-cell comparison-price">5€ غير!</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Features Section -->
-    <section class="features-section">
-        <h2 class="section-title">لماذا WatiqaFlussi؟</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <div class="feature-title">وصول سريع</div>
-                <div class="feature-text">الفلوس كيوصلو في ساعتين غير. مباشرة لعائلتك في المغرب.</div>
+        <!-- Travel Services -->
+        <section class="section">
+            <div class="service-showcase reverse">
+                <div class="service-showcase-content">
+                    <div class="service-showcase-icon">✈️</div>
+                    <h3 class="service-showcase-title">حجز السفريات</h3>
+                    <p class="service-showcase-title-fr">Réservation de voyages</p>
+                    <p class="service-showcase-description">
+                        كنحجزو ليك بييات الطيارة و الباطو للمغرب بأحسن الأثمنة. ما بقاش خاصك تقلق.
+                    </p>
+                    <p class="service-showcase-description" style="font-family: 'Inter', sans-serif;">
+                        Nous réservons vos billets d'avion et de bateau pour le Maroc aux meilleurs prix. Plus besoin de vous inquiéter.
+                    </p>
+                    <ul class="service-showcase-features">
+                        <li><span class="feature-icon">✈️</span> بييات الطيارة | Billets d'avion</li>
+                        <li><span class="feature-icon">🚢</span> بييات الباطو | Billets de bateau</li>
+                        <li><span class="feature-icon">💳</span> خلاص سهل | Paiement facile</li>
+                        <li><span class="feature-icon">📧</span> التأكيد فوري | Confirmation immédiate</li>
+                    </ul>
+                </div>
+                
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">✈️</div>
+                    <div class="image-placeholder-text">
+                        Image: Travel Booking
+                        <div class="image-placeholder-subtext">
+                            Suggestion: Avion + ferry + famille avec valises à l'aéroport
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <div class="feature-title">آمن و مضمون</div>
-                <div class="feature-text">خدمة مرخصة و محمية 100%. فلوسك في أمان تام.</div>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💰</div>
-                <div class="feature-title">بلا مصاريف مخبية</div>
-                <div class="feature-text">الثمن واضح و شفاف. ما كاين مفاجآت.</div>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📱</div>
-                <div class="feature-title">سهل و بسيط</div>
-                <div class="feature-text">غير واتساب، ما كاينش تعقيد. كلشي بالصوت.</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-box">
-            <div class="cta-title">تصوّل دابا و سيفط الفلوس</div>
-            <a href="https://wa.me/33XXXXXXXXX?text=السلام%20عليكم،%20بغيت%20نسيفط%20الفلوس%20للمغرب" class="whatsapp-button">
-                <span class="whatsapp-icon">📱</span>
-                <span>اتصل على واتساب</span>
+        <!-- Visa & Administrative Services -->
+        <section class="section">
+            <div class="service-showcase">
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">📋</div>
+                    <div class="image-placeholder-text">
+                        Image: Visa Services
+                        <div class="image-placeholder-subtext">
+                            Suggestion: Passeport + documents + tampon "APPROVED" + consulat
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-showcase-content">
+                    <div class="service-showcase-icon">📋</div>
+                    <h3 class="service-showcase-title">خدمات الفيزا و الإدارة</h3>
+                    <p class="service-showcase-title-fr">Services visa et administratifs</p>
+                    <p class="service-showcase-description">
+                        كنساعدوك في كلشي: الفيزا، الرونديفو في القنصلية، كلشي كنديروه ليك.
+                    </p>
+                    <p class="service-showcase-description" style="font-family: 'Inter', sans-serif;">
+                        Nous vous aidons pour tout: visa, rendez-vous au consulat, nous gérons tout pour vous.
+                    </p>
+                    <ul class="service-showcase-features">
+                        <li><span class="feature-icon">📝</span> تعمير الفورميلير | Remplissage formulaire</li>
+                        <li><span class="feature-icon">📅</span> أخذ الرونديفو | Prise de rendez-vous</li>
+                        <li><span class="feature-icon">📄</span> تحضير الوثائق | Préparation documents</li>
+                        <li><span class="feature-icon">✅</span> متابعة الملف | Suivi du dossier</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Document Services -->
+        <section class="section">
+            <div class="service-showcase reverse">
+                <div class="service-showcase-content">
+                    <div class="service-showcase-icon">📄</div>
+                    <h3 class="service-showcase-title">وثائق إيطاليا و إسبانيا</h3>
+                    <p class="service-showcase-title-fr">Documents Italie et Espagne</p>
+                    <p class="service-showcase-description">
+                        كنساعدوك في الوثائق ديال إيطاليا و إسبانيا: ديكلاراسيون شوماج، ديكريتو فلوسي و غيرهم.
+                    </p>
+                    <p class="service-showcase-description" style="font-family: 'Inter', sans-serif;">
+                        Nous vous aidons avec les documents d'Italie et d'Espagne: déclarations chômage, decreto flussi et autres.
+                    </p>
+                    <ul class="service-showcase-features">
+                        <li><span class="feature-icon">🇮🇹</span> وثائق إيطالية | Documents italiens</li>
+                        <li><span class="feature-icon">🇪🇸</span> وثائق إسبانية | Documents espagnols</li>
+                        <li><span class="feature-icon">📋</span> Dichiarazione disoccupazione</li>
+                        <li><span class="feature-icon">⚖️</span> Decreto flussi - Nulla Osta</li>
+                    </ul>
+                </div>
+                
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">📄</div>
+                    <div class="image-placeholder-text">
+                        Image: Documents
+                        <div class="image-placeholder-subtext">
+                            Suggestion: Drapeaux IT/ES + documents tamponnés + stylo
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Propositions -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">علاش تختارنا؟</h2>
+                <p class="section-subtitle">Pourquoi nous choisir?</p>
+            </div>
+            
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-card-icon">🎯</div>
+                    <h3 class="value-card-title">كلشي في بلاصة وحدة</h3>
+                    <p class="value-card-description">
+                        ما بقاش خاصك تمشي لبلايص بزاف. عندنا كلشي.<br>
+                        <span style="font-family: 'Inter', sans-serif;">Tout en un seul endroit. Plus besoin de chercher ailleurs.</span>
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-card-icon">💬</div>
+                    <h3 class="value-card-title">بالدارجة</h3>
+                    <p class="value-card-description">
+                        كنتكلمو معاك بالدارجة، بلا تعقيد.<br>
+                        <span style="font-family: 'Inter', sans-serif;">Nous parlons Darija, sans complication.</span>
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-card-icon">📱</div>
+                    <h3 class="value-card-title">غير واتساب</h3>
+                    <p class="value-card-description">
+                        بلا تطبيقات معقدة. غير رسالة صوتية و صافي.<br>
+                        <span style="font-family: 'Inter', sans-serif;">Pas d'apps compliquées. Juste un message vocal.</span>
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-card-icon">⚡</div>
+                    <h3 class="value-card-title">سريع</h3>
+                    <p class="value-card-description">
+                        ما كنضيعوش الوقت. خدمة سريعة و فعالة.<br>
+                        <span style="font-family: 'Inter', sans-serif;">Nous ne perdons pas de temps. Service rapide et efficace.</span>
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-card-icon">🤝</div>
+                    <h3 class="value-card-title">قرب منك</h3>
+                    <p class="value-card-description">
+                        شركاء في كل مدينة. قريبين منك دائما.<br>
+                        <span style="font-family: 'Inter', sans-serif;">Partenaires dans chaque ville. Toujours près de vous.</span>
+                    </p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-card-icon">✅</div>
+                    <h3 class="value-card-title">موثوق</h3>
+                    <p class="value-card-description">
+                        خدمة قانونية و مرخصة. ثقة مضمونة.<br>
+                        <span style="font-family: 'Inter', sans-serif;">Service légal et licencié. Confiance garantie.</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="image-placeholder" style="margin-bottom: 3rem; background: rgba(255,255,255,0.9);">
+                <div class="image-placeholder-icon">📱</div>
+                <div class="image-placeholder-text" style="color: #444;">
+                    Image: WhatsApp Contact
+                    <div class="image-placeholder-subtext">
+                        Suggestion: Smartphone avec interface WhatsApp + bouton d'appel vert
+                    </div>
+                </div>
+            </div>
+            
+            <h2 class="cta-title">تصوّل دابا</h2>
+            <p class="cta-subtitle">
+                خدمة 7/7 على الواتساب • Service 7j/7 sur WhatsApp
+            </p>
+            <a href="https://wa.me/33XXXXXXXXX?text=السلام%20عليكم،%20بغيت%20معلومات%20على%20الخدمات" class="whatsapp-button">
+                <span style="font-size: 28px;">📱</span>
+                <span>اتصل على WhatsApp</span>
             </a>
-        </div>
-    </section>
+        </section>
 
-    <!-- Steps Section -->
-    <section class="steps-section">
-        <h2 class="section-title">كيفاش كتسيفط؟</h2>
-        <div class="steps-container">
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-text">تصوّل علينا على واتساب (رسالة صوتية)</div>
+        <!-- Pricing Section - Collapsible -->
+        <section class="pricing-section">
+            <div class="pricing-toggle" onclick="togglePricing()">
+                <div>
+                    <div class="pricing-toggle-title">الأثمنة | Tarifs</div>
+                    <div style="font-size: 14px; opacity: 0.9; margin-top: 0.5rem; font-family: 'Inter', sans-serif;">
+                        Cliquez pour voir les détails des prix
+                    </div>
+                </div>
+                <div class="pricing-toggle-icon">▼</div>
             </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-text">غنقولوليك فين تعطي الفلوس (حانوت قريب منك)</div>
+            
+            <div class="pricing-content" id="pricingContent">
+                <div class="pricing-table">
+                    <div class="pricing-table-header">
+                        <div>الخدمة | Service</div>
+                        <div>التكرار | Fréquence</div>
+                        <div>السعر | Prix</div>
+                    </div>
+                    
+                    <div class="pricing-table-row">
+                        <div>
+                            <div class="pricing-service">💰 تسيفيط فلوس</div>
+                            <div class="pricing-service-subtitle">Transfert d'argent</div>
+                        </div>
+                        <div class="pricing-frequency">~10 مرات/سنة</div>
+                        <div class="pricing-amount">5€</div>
+                    </div>
+                    
+                    <div class="pricing-table-row">
+                        <div>
+                            <div class="pricing-service">✈️ بيية طيارة</div>
+                            <div class="pricing-service-subtitle">Billet avion</div>
+                        </div>
+                        <div class="pricing-frequency">~3 مرات/سنة</div>
+                        <div class="pricing-amount">10€</div>
+                    </div>
+                    
+                    <div class="pricing-table-row">
+                        <div>
+                            <div class="pricing-service">🚢 بيية باطو</div>
+                            <div class="pricing-service-subtitle">Billet bateau</div>
+                        </div>
+                        <div class="pricing-frequency">~3 مرات/سنة</div>
+                        <div class="pricing-amount">10€</div>
+                    </div>
+                    
+                    <div class="pricing-table-row">
+                        <div>
+                            <div class="pricing-service">📋 فيزا - فورميلير</div>
+                            <div class="pricing-service-subtitle">Visa - Formulaire</div>
+                        </div>
+                        <div class="pricing-frequency">~1 مرة/سنة</div>
+                        <div class="pricing-amount">250€</div>
+                    </div>
+                    
+                    <div class="pricing-table-row">
+                        <div>
+                            <div class="pricing-service">📅 رونديفو</div>
+                            <div class="pricing-service-subtitle">Rendez-vous consulat</div>
+                        </div>
+                        <div class="pricing-frequency">~1 مرة/سنة</div>
+                        <div class="pricing-amount">250€</div>
+                    </div>
+                    
+                    <div class="pricing-table-row">
+                        <div>
+                            <div class="pricing-service">📄 ديكلاراسيون شوماج (IT/ES)</div>
+                            <div class="pricing-service-subtitle">Dichiarazione disoccupazione (Italie/Espagne)</div>
+                        </div>
+                        <div class="pricing-frequency">~1 مرة/سنة</div>
+                        <div class="pricing-amount">30€</div>
+                    </div>
+                    
+                    <div class="pricing-table-row">
+                        <div>
+                            <div class="pricing-service">⚖️ ديكريتو فلوسي - نولا أوستا</div>
+                            <div class="pricing-service-subtitle">Decreto flussi - Nulla Osta (Italie)</div>
+                        </div>
+                        <div class="pricing-frequency">~1 مرة/سنة</div>
+                        <div class="pricing-amount">100€</div>
+                    </div>
+                </div>
+                
+                <div class="pricing-note">
+                    * الأثمنة شاملة الخدمة | Prix incluant le service<br>
+                    * التكرار متوسط | Fréquence moyenne par personne
+                </div>
             </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-text">الفلوس كيوصلو لعائلتك في المغرب</div>
-            </div>
-            <div class="step">
-                <div class="step-number">4</div>
-                <div class="step-text">غنعلموك فاش وصلو - صافي!</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Trust Section -->
-    <section class="trust-section">
-        <div class="trust-badges">
-            <div class="trust-badge">
-                <div class="trust-icon">✅</div>
-                <div class="trust-text">مرخّص و قانوني</div>
+        <!-- Trust Section -->
+        <section class="trust-section">
+            <div class="section-header">
+                <h2 class="section-title">واش عارف؟</h2>
+                <p class="section-subtitle">Le saviez-vous?</p>
             </div>
-            <div class="trust-badge">
-                <div class="trust-icon">👥</div>
-                <div class="trust-text">خدمنا مع +500 عائلة</div>
+            
+            <div class="image-placeholder" style="margin-bottom: 3rem;">
+                <div class="image-placeholder-icon">👥</div>
+                <div class="image-placeholder-text">
+                    Image: Community Trust
+                    <div class="image-placeholder-subtext">
+                        Suggestion: Groupe de personnes diverses + témoignages + étoiles 5/5
+                    </div>
+                </div>
             </div>
-            <div class="trust-badge">
-                <div class="trust-icon">🕐</div>
-                <div class="trust-text">خدمة 7/7 أيام</div>
+            
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <div class="trust-icon">✅</div>
+                    <div class="trust-title">مرخّص و قانوني</div>
+                    <div class="trust-description">Service officiel et régulé</div>
+                </div>
+                
+                <div class="trust-card">
+                    <div class="trust-icon">👥</div>
+                    <div class="trust-title">+500 عميل</div>
+                    <div class="trust-description">Plus de 500 clients satisfaits</div>
+                </div>
+                
+                <div class="trust-card">
+                    <div class="trust-icon">🕐</div>
+                    <div class="trust-title">7/7</div>
+                    <div class="trust-description">Disponible tous les jours</div>
+                </div>
+                
+                <div class="trust-card">
+                    <div class="trust-icon">🌍</div>
+                    <div class="trust-title">كل أوروبا</div>
+                    <div class="trust-description">Service dans toute l'Europe</div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
+            <div class="footer-section">
+                <h3>WatiqaFlussi</h3>
+                <p style="opacity: 0.9; line-height: 1.8;">
+                    خدمات أوروبا - المغرب<br>
+                    Services Europe-Maroc<br>
+                    Servizi Europa-Marocco
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>الخدمات | Services</h3>
+                <ul>
+                    <li>💰 تسيفيط الفلوس | Transferts</li>
+                    <li>✈️ السفريات | Voyages</li>
+                    <li>📋 الفيزا | Visas</li>
+                    <li>📄 الوثائق | Documents</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>اتصل بينا | Contact</h3>
+                <ul>
+                    <li>📱 WhatsApp: +33 X XX XX XX XX</li>
+                    <li>🕐 Disponible 7j/7</li>
+                    <li>💬 Darija, Français, Italiano, Español</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
             <div class="footer-logo">Watiqa<span class="logo-accent">Flussi</span></div>
-            <div class="footer-text">خدمة نقل الأموال - من أوروبا للمغرب</div>
-            <div class="footer-text" style="margin-top: 1rem;">© 2026 WatiqaFlussi - جميع الحقوق محفوظة</div>
+            <p>© 2026 WatiqaFlussi - جميع الحقوق محفوظة | Tous droits réservés</p>
         </div>
     </footer>
+
+    <script>
+        function togglePricing() {
+            const toggle = document.querySelector('.pricing-toggle');
+            const content = document.getElementById('pricingContent');
+            
+            toggle.classList.toggle('active');
+            content.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
